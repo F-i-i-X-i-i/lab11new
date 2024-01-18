@@ -1,0 +1,13 @@
+<h1>Ввод данных</h1>
+<p>Введите число N > 1</p>
+<%= form_tag("/calc/view", :method => "get") do %>
+ <%= label_tag("n: ") %>
+ <%= text_field_tag(:n) %> 
+ <br/>
+ <br/>
+ <%= submit_tag("Calc result") %>
+<% end %>
+ <br/>
+<%=form_tag("/calc/showzap", :method => "get") do%>
+<%= submit_tag("show database") %>
+<%end%> 

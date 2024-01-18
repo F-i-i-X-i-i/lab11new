@@ -1,0 +1,19 @@
+<h1>Результат</h1>
+<%unless @result.is_a?(String)%>
+<p>Все взаимно-дружественные числа, найденные в диапазоне от 1 до <%= params[:n]%>:</p>
+<table>
+<tr><td>первое число</td><td>второе число</td><tr>
+  <% @result.each do |row| %>
+    <tr>
+      <% row.each do |value| %>
+        <td>
+          <%= value %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+<%else if @result == 'Ошибка ввода'%><p class = 'smth_err'><%=@result%></p>
+<%else%><p><%=@result%></p><%end%><%end%>
+<p>sources: <%=@sources%></p>
+<%= link_to "Repeat calculation", :calc_input %>

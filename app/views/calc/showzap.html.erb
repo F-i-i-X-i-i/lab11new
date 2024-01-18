@@ -1,0 +1,21 @@
+<h1>Записи в базе</h1><br/><hr/>
+<%@arr_res.each do |cur_res|%>
+<div>
+    <p>Введено: n = <%=cur_res[1]%></p>
+    <br/>
+    <p>Результат:</p>
+    <%unless cur_res[0].is_a?(String)%>
+    <p>Все взаимно-дружественные числа, найденные в диапазоне от 1 до <%= cur_res[1]%>:</p>
+    <table>
+    <tr><td>первое число</td><td>второе число</td><tr>
+    <% cur_res[0].each do |row| %>
+        <tr><% row.each do |value| %>
+            <td><%= value %></td>
+        <% end %></tr>
+    <% end %>
+    </table>
+    <%else if cur_res[0] == 'Ошибка ввода'%>
+    <p class = 'smth_err'><%=cur_res[0]%></p>
+    <%else%><p><%=cur_res[0]%></p><%end%><%end%>
+</div><br/><hr/><%end%>
+<%= link_to "exit", :calc_input %>
